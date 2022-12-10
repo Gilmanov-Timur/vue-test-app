@@ -159,8 +159,10 @@ export default {
 			if (this.selectedTest) {
 				if (this.selectedTest.type === 'text') {
 					return this.textAnswer.length !== 0
-				} else if (this.userAnswers.some(answer => answer.selected)) {
-					return true
+				} else if (this.selectedTest.type === 'single') {
+					return this.userAnswers.some(answer => answer.selected)
+				} else {
+					return this.userAnswers.filter(answer => answer.selected).length > 1
 				}
 			}
 		},

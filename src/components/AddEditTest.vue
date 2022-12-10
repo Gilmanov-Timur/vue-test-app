@@ -27,7 +27,9 @@
 				</template>
 				<template v-else>
 					<div>Ответы</div>
-					<small>Введите варианты ответов и укажите верный(е) ответ(ы)</small>
+					<small>
+						{{ selectedTest.type === 'single' ? 'Введите варианты ответов и укажите один верный' : 'Введите варианты ответов и укажите как минимум 2 верных' }}
+					</small>
 					<table class="answers">
 						<tr v-for="(answer, index) in form.answers" :key="answer.id">
 							<td width="1%">
@@ -44,7 +46,7 @@
 									type="checkbox"
 									class="check-input"
 									v-model="answer.isCorrect"
-									:required="form.answers.every(item => !item.isCorrect)"
+									:required="form.answers.filter(item => item.isCorrect).length < 2"
 									v-else
 								>
 							</td>
