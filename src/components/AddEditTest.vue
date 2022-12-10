@@ -28,7 +28,7 @@
 				<template v-else>
 					<div>Ответы</div>
 					<small>
-						{{ selectedTest.type === 'single' ? 'Введите варианты ответов и укажите один верный' : 'Введите варианты ответов и укажите как минимум 2 верных' }}
+						{{ form.type === 'single' ? 'Введите варианты ответов и укажите один верный' : 'Введите варианты ответов и укажите как минимум 2 верных' }}
 					</small>
 					<table class="answers">
 						<tr v-for="(answer, index) in form.answers" :key="answer.id">
