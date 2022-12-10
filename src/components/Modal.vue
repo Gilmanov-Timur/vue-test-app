@@ -13,7 +13,3 @@ export default {
 	emits: ['close']
 }
 </script>
-
-<style scoped>
-
-</style>
